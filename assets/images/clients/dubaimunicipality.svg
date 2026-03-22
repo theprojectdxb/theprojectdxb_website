@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 44" width="210" height="44">
+  <!-- Simple geometric emblem -->
+  <polygon points="22,6 34,14 34,30 22,38 10,30 10,14" fill="none" stroke="#fff" stroke-width="2"/>
+  <circle cx="22" cy="22" r="5" fill="#fff"/>
+  <text x="42" y="18" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#fff">Dubai Municipality</text>
+  <text x="42" y="34" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#fff" opacity="0.7">بلدية دبي</text>
+</svg>
