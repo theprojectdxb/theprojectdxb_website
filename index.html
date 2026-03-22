@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Project DXB — Strength & Conditioning Dubai</title>
+  <meta name="description" content="Results-driven strength and conditioning in Dubai. Serious training, expert coaches, and a community built to push you further. Dubai." />
+  <!-- ══ SEO — update domain if different ═════════════════ -->
+  <link rel="canonical" href="https://www.theprojectdxb.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Project DXB" />
+  <meta property="og:url" content="https://www.theprojectdxb.com/" />
+  <meta property="og:title" content="The Project DXB — Strength &amp; Conditioning Dubai" />
+  <meta property="og:description" content="Results-driven strength and conditioning in Dubai. Serious training, expert coaches, and a community built to push you further." />
+  <meta property="og:image" content="https://www.theprojectdxb.com/assets/images/IMG_7224.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Project DXB — Strength &amp; Conditioning Dubai" />
+  <meta name="twitter:description" content="Results-driven strength and conditioning in Dubai. Serious training, expert coaches, and a community built to push you further." />
+  <meta name="twitter:image" content="https://www.theprojectdxb.com/assets/images/IMG_7224.jpeg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SportsActivityLocation",
+        "@id": "https://www.theprojectdxb.com/#gym",
+        "name": "The Project DXB",
+        "description": "Results-driven strength and conditioning in Dubai. Serious training, expert coaches, and a community built to push you further.",
+        "url": "https://www.theprojectdxb.com",
+        "telephone": "+971504994680",
+        "email": "jack@theprojectdxb.com",
+        "foundingDate": "2018",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "15A St, Al Qouz Ind. First",
+          "addressLocality": "Al Quoz",
+          "addressRegion": "Dubai",
+          "addressCountry": "AE"
+        },
+        "sameAs": [
+          "https://www.instagram.com/theprojectdxb",
+          "https://www.facebook.com/share/1aDbW2KLCJ/"
+        ],
+        "image": "https://www.theprojectdxb.com/assets/images/IMG_7224.jpeg",
+        "priceRange": "$$"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.theprojectdxb.com/#website",
+        "url": "https://www.theprojectdxb.com",
+        "name": "The Project DXB",
+        "description": "Results-driven strength and conditioning in Dubai.",
+        "publisher": { "@id": "https://www.theprojectdxb.com/#gym" }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/norwester" rel="stylesheet">
+  <style>
+    /* ── Hero + Pillars (combined interactive hero section) ── */
+
+    .hero-pillars {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Background image layers — stacked, crossfade on hover */
+    .hp-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center top;
+      opacity: 0;
+      transition: opacity 0.75s ease;
+      will-change: opacity;
+    }
+    .hp-bg.active { opacity: 1; }
+
+    /* Gradient overlay — heavier at bottom for pillar legibility */
+    .hp-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.52) 0%,
+        rgba(0,0,0,0.28) 35%,
+        rgba(0,0,0,0.62) 65%,
+        rgba(0,0,0,0.90) 100%
+      );
+      z-index: 1;
+    }
+
+    /* Upper hero text content */
+    .hp-hero-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-h) + 4rem) 2rem 3rem;
+      min-height: 62vh;
+    }
+    .hp-hero-content h1 { color: #fff; margin-bottom: 1.2rem; }
+    .hp-hero-content .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.88);
+      max-width: 560px;
+      margin: 0 auto 2.25rem;
+    }
+    .hp-hero-content .label {
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Scroll indicator */
+    .hp-scroll {
+      position: absolute;
+      bottom: 260px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .hp-scroll span {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    /* Bottom pillars area */
+    .hp-bottom {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Tagline row — horizontal line to left of text */
+    .hp-tagline-row {
+      display: flex;
+      align-items: center;
+      padding: 0 2.5rem 1.1rem;
+    }
+    .hp-tagline-line {
+      display: block;
+      width: 52px;
+      height: 1px;
+      background: rgba(255,255,255,0.32);
+      margin-right: 1.1rem;
+      flex-shrink: 0;
+    }
+    .hp-tagline-text {
+      font-family: 'Norwester', 'Montserrat', sans-serif;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* Three-column pillar grid */
+    .hp-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hp-pillar {
+      padding: 1.6rem 2.5rem 2.4rem;
+      cursor: pointer;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      border-right: 1px solid rgba(255,255,255,0.07);
+      background: transparent;
+      transition: background 0.45s ease, border-top-color 0.45s ease;
+    }
+    .hp-pillar:last-child { border-right: none; }
+
+    /* Active pillar — solid dark card to stand out */
+    .hp-pillar.active {
+      background: rgba(0,0,0,0.82);
+      border-top: 2px solid var(--blue);
+    }
+
+    /* Pillar number label */
+    .hp-pillar-num {
+      display: block;
+      font-family: 'Norwester', 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.65rem;
+      transition: color 0.35s ease;
+    }
+    .hp-pillar.active .hp-pillar-num { color: var(--blue); }
+
+    .hp-pillar h3 {
+      font-family: 'League Gothic', Impact, sans-serif;
+      font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      margin: 0 0 0.65rem;
+    }
+    .hp-pillar p {
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+      margin: 0 0 1rem;
+    }
+    .hp-pillar-link {
+      display: inline-block;
+      font-family: 'Norwester', 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-decoration: none;
+      transition: color 0.2s, letter-spacing 0.25s;
+    }
+    .hp-pillar-link:hover,
+    .hp-pillar.active .hp-pillar-link { color: #fff; }
+
+    @media (max-width: 768px) {
+      .hp-pillars-grid { grid-template-columns: 1fr; }
+      .hp-pillar { border-right: none; }
+      .hp-scroll { display: none; }
+      .hp-hero-content { min-height: 52vh; }
+      .hp-tagline-row { padding: 0 1.5rem 1rem; }
+      .hp-pillar { padding: 1.4rem 1.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ══════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/logo-dark.png" alt="The Project DXB" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li class="has-dropdown">
+          <a href="classes.html">Classes</a>
+          <ul class="nav-dropdown">
+            <li><a href="classes.html#schedule">Schedule</a></li>
+            <li><a href="classes.html#memberships">Memberships</a></li>
+            <li><a href="classes.html#project90">Project 90</a></li>
+          </ul>
+        </li>
+        <li><a href="corporate.html">Corporate</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/971504994680?text=Hi%20Coach%2C%20I%20would%20like%20to%20claim%20the%202%20free%20trial%20class%20offer%20please%3A%20Full%20Name%20/%20Email" target="_blank" rel="noopener" class="btn btn-primary nav-cta">Experience The Project</a>
+      <button class="nav-burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile">
+    <a href="about.html">About</a>
+    <a href="classes.html">Classes</a>
+    <a href="classes.html#schedule" class="nav-mobile-sub">&#8594; Schedule</a>
+    <a href="classes.html#project90" class="nav-mobile-sub">&#8594; Project 90</a>
+    <a href="corporate.html">Corporate</a>
+    <a href="community.html">Community</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://wa.me/971504994680?text=Hi%20Coach%2C%20I%20would%20like%20to%20claim%20the%202%20free%20trial%20class%20offer%20please%3A%20Full%20Name%20/%20Email" target="_blank" rel="noopener" class="btn btn-primary" style="text-align:center;margin-top:0.5rem;">Experience The Project</a>
+  </div>
+
+  <main>
+  <!-- ══ HERO + PILLARS (combined interactive section) ══════ -->
+  <section class="hero-pillars">
+
+    <!-- Background image layers — each pillar swaps to its own image -->
+    <div class="hp-bg active" id="hp-bg-0" style="background-image:url('assets/images/IMG_7224.jpeg'); background-position: center center;"></div>
+    <div class="hp-bg" id="hp-bg-1" style="background-image:url('assets/images/Project-dxb-29.JPG');"></div>
+    <div class="hp-bg" id="hp-bg-2" style="background-image:url('assets/images/IMG_7226.jpeg'); background-position: center 30%;"></div>
+    <div class="hp-overlay"></div>
+
+    <!-- Upper hero text -->
+    <div class="hp-hero-content fade-up">
+      <span class="label">Est. 2018 — Dubai</span>
+      <h1>WHAT'S YOUR PROJECT?</h1>
+      <p class="hero-sub">Strength. Conditioning. Community. Dubai's most serious training programme.</p>
+      <div>
+        <a href="https://wa.me/971504994680?text=Hi%20Coach%2C%20I%20would%20like%20to%20claim%20the%202%20free%20trial%20class%20offer%20please%3A%20Full%20Name%20/%20Email" target="_blank" rel="noopener" class="btn btn-primary">Experience The Project</a>
+        &nbsp;&nbsp;
+        <a href="classes.html" class="btn btn-outline">See Classes</a>
+      </div>
+    </div>
+
+    <!-- Subtle scroll nudge -->
+    <div class="hp-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+
+    <!-- Bottom pillars strip -->
+    <div class="hp-bottom">
+      <div class="hp-tagline-row">
+        <span class="hp-tagline-line"></span>
+        <span class="hp-tagline-text">The Method</span>
+      </div>
+      <div class="hp-pillars-grid">
+
+        <div class="hp-pillar active" data-pillar="0">
+          <span class="hp-pillar-num">01</span>
+          <h3>Training</h3>
+          <p>Athletic team training. Structured, progressive, results driven.</p>
+          <a href="classes.html" class="hp-pillar-link">See Schedule →</a>
+        </div>
+
+        <div class="hp-pillar" data-pillar="1">
+          <span class="hp-pillar-num">02</span>
+          <h3>Nutrition</h3>
+          <p>Our Blueprint Nutrition Programme makes eating right simple and sustainable.</p>
+          <a href="classes.html#nutrition" class="hp-pillar-link">Learn More →</a>
+        </div>
+
+        <div class="hp-pillar" data-pillar="2">
+          <span class="hp-pillar-num">03</span>
+          <h3>Community</h3>
+          <p>More than just a gym — Discover new passions, friends and adventure.</p>
+          <a href="community.html" class="hp-pillar-link">Join the Community →</a>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ TRIAL OFFER ═══════════════════════════════════════ -->
+  <section class="trial-section" id="trial">
+    <div class="hero-bg" style="background-image:url('assets/images/5T5A0367-2.jpg');background-position:center 30%;"></div>
+    <div class="trial-overlay"></div>
+    <div class="container" style="position:relative;z-index:2;padding:80px 0;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+        <div class="fade-up">
+          <span class="label" style="color:rgba(255,255,255,0.7);">First Timer Offer</span>
+          <h2 style="color:#fff;">2 WEEK UNLIMITED TRAINING PASS</h2>
+          <div class="divider" style="background:#fff;"></div>
+          <ul style="margin:1.5rem 0;list-style:none;padding:0;">
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.2);font-family:'Norwester','Montserrat',sans-serif;color:#fff;display:flex;align-items:center;gap:10px;"><span style="color:#fff;font-weight:700;">✓</span> Access to all classes, coaches &amp; community</li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.2);font-family:'Norwester','Montserrat',sans-serif;color:#fff;display:flex;align-items:center;gap:10px;"><span style="color:#fff;font-weight:700;">✓</span> First timers only — UAE residents</li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.2);font-family:'Norwester','Montserrat',sans-serif;color:#fff;display:flex;align-items:center;gap:10px;"><span style="color:#fff;font-weight:700;">✓</span> Pass activates from your first booked class</li>
+          </ul>
+          <a href="https://app.glofox.com/portal/#/branch/63580b8964b3baeee4037774/memberships" target="_blank" rel="noopener" class="btn btn-white" style="margin-top:0.5rem;">Claim Your Pass</a>
+        </div>
+        <div class="fade-up fade-up-d1" style="text-align:center;">
+          <span style="font-family:'League Gothic','Impact',sans-serif;font-size:clamp(5rem,12vw,9rem);color:#fff;line-height:1;display:block;">395</span>
+          <span style="font-family:'League Gothic','Impact',sans-serif;font-size:2.5rem;color:rgba(255,255,255,0.75);display:block;letter-spacing:0.05em;">AED</span>
+          <span style="font-family:'Norwester','Montserrat',sans-serif;font-size:0.75rem;color:rgba(255,255,255,0.5);letter-spacing:0.14em;text-transform:uppercase;margin-top:0.5rem;display:block;">2 Weeks Unlimited</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT SNAPSHOT ═══════════════════════════════════ -->
+  <div class="split">
+    <div class="split-img" style="background-image:url('assets/images/5T5A0628-Enhanced-NR.jpg');"></div>
+    <div class="split-content">
+      <div class="split-content-inner">
+        <span class="label">Who We Are</span>
+        <h2>A SERIOUS TRAINING COMMUNITY IN THE HEART OF DUBAI</h2>
+        <div class="divider"></div>
+        <p>8+ years pioneering Dubai fitness. Real coaching, real results, real people.</p>
+        <br/>
+        <a href="about.html" class="btn btn-primary">Our Story</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TESTIMONIALS ══════════════════════════════════════ -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="label">Real Members, Real Results</span>
+        <h2>What the Team Says</h2>
+      </div>
+
+      <div class="slider-wrapper">
+        <button class="slider-btn slider-prev" aria-label="Previous review">&#8592;</button>
+        <div class="slider-viewport">
+          <div class="slider-track" id="reviewTrack">
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Coach Jack and The Project DXB are phenomenal! I've been working out with him since 2021 and love it. His expertise, passion, and energy create an environment that's motivating and supportive for all fitness levels. Each session feels personal and perfectly tailored."</p>
+                <div class="testimonial-name">Barbara Karin Vela</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"4 years and two pregnancies later The Project DXB has kept me at my fittest! Jack has been able to safely guide me through training before, during and after pregnancies and it's made a huge difference in my overall strength. Great community and variety of classes and timings!"</p>
+                <div class="testimonial-name">Laura Bailey</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"There's a real focus on community and a really varied and challenging program. A combination of strength training, grueling team challenges and targeted sessions for events like Hyrox are why I've kept coming back for 7 years."</p>
+                <div class="testimonial-name">Jossy</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"I've been training at the Project for the past 8 months, and it's been a game-changer. Every workout is challenging yet motivating, and the programming is well-thought-out. The community is another level — everyone is supportive, whether you're a beginner or a seasoned athlete."</p>
+                <div class="testimonial-name">Eoghan O Brien</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"I can't say enough good things about Jack & The Project DXB! From the moment I started, I've felt supported, motivated, and challenged in all the right ways. They have such a fab community spirit — best in Dubai! My confidence has skyrocketed."</p>
+                <div class="testimonial-name">Kirsty Walker</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The level of care and customization here is unmatched. Whether you're a beginner or advanced, the programs are adaptable and engaging, and the results speak for themselves. They truly go above and beyond to help you reach your fitness goals."</p>
+                <div class="testimonial-name">Justin Gatchalian</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The Project DXB truly is a fitness community with members being at the heart of what drives Head Coach Jack to continually bring the best classes and service. The vibe is warm, welcoming, and supportive for all levels and abilities."</p>
+                <div class="testimonial-name">Leanne Miles</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Awesome gym and an awesome community. The perfect place to get fit and stay fit. Jack's a master at his craft — the Project is amazing for all levels and is tailored to you. Highly recommend as someone who has trained with Jack and the team for 10 years."</p>
+                <div class="testimonial-name">Steve Worobec</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Nearly two years in and it's one of the best fitness decisions I've ever made. The progress I've seen in strength and conditioning has been incredible. The coaches are not only knowledgeable but genuinely invested in helping each member reach their goals."</p>
+                <div class="testimonial-name">Kahna Gilligan</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"I love the community there and Jack is a great trainer who really knows his stuff and is super supportive. Good mix of classes for all levels of fitness. I'd recommend to anyone."</p>
+                <div class="testimonial-name">Nicholas Roley</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Best weekly training structure in Dubai! Whether you're wanting to get functionally fit or in the best shape of your life, The Project DXB is the gym for you!"</p>
+                <div class="testimonial-name">Jake Heath</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"What started as a 'weeks trial' has turned into a full time membership! The classes are focused around strength and building your engine. Jack genuinely cares about you and your goals. I look forward to training here every morning. What a vibe!!"</p>
+                <div class="testimonial-name">Laura Davies</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"A great quality coaching program with a good range of classes covering strength, conditioning and engine training. Above all, the community spirit built by Jack is what keeps me coming back. A big friendly bunch all supporting and pushing each other every day!"</p>
+                <div class="testimonial-name">Mark Johnson</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-inner">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"An amazing gym for all levels, a great community and coaching that helps you achieve whatever your goals are. Joining The Project DXB changed my life. The community, like-minded friends, the fun and the social events — you have to take that first step."</p>
+                <div class="testimonial-name">James Collin</div>
+              </div>
+            </div>
+
+          </div><!-- /slider-track -->
+        </div><!-- /slider-viewport -->
+        <button class="slider-btn slider-next" aria-label="Next review">&#8594;</button>
+      </div><!-- /slider-wrapper -->
+
+      <div class="slider-dots" id="reviewDots"></div>
+
+    </div>
+  </section>
+
+  <script>
+  (function() {
+    const track    = document.getElementById('reviewTrack');
+    const dotsWrap = document.getElementById('reviewDots');
+    const prevBtn  = document.querySelector('.slider-prev');
+    const nextBtn  = document.querySelector('.slider-next');
+    const cards    = track.querySelectorAll('.testimonial-card');
+    const total    = cards.length;
+    let current = 0;
+    let autoTimer;
+
+    function getVisible() {
+      if (window.innerWidth < 600)  return 1;
+      if (window.innerWidth < 900)  return 2;
+      return 3;
+    }
+
+    function getMax() { return total - getVisible(); }
+
+    function setCardWidths() {
+      const pct = 100 / getVisible() + '%';
+      cards.forEach(c => c.style.flexBasis = pct);
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, getMax()));
+      const pct = 100 / getVisible();
+      track.style.transform = 'translateX(-' + (current * pct) + '%)';
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current >= getMax();
+      document.querySelectorAll('.slider-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      const max = getMax();
+      for (let i = 0; i <= max; i++) {
+        const d = document.createElement('button');
+        d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to review ' + (i + 1));
+        d.addEventListener('click', () => { goTo(i); resetAuto(); });
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        goTo(current >= getMax() ? 0 : current + 1);
+      }, 5000);
+    }
+
+    function init() {
+      setCardWidths();
+      buildDots();
+      goTo(0);
+      resetAuto();
+    }
+
+    prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+    nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+    window.addEventListener('resize', init);
+
+    // Touch swipe
+    let touchX = 0;
+    track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', e => {
+      const dx = touchX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 40) { goTo(dx > 0 ? current + 1 : current - 1); resetAuto(); }
+    }, {passive:true});
+
+    init();
+  })();
+  </script>
+
+  <!-- ══ WHATSAPP COMMUNITY CTA ════════════════════════════ -->
+  <section class="wa-section">
+    <div class="hero-bg" style="background-image:url('assets/images/IMG_7224.jpeg');background-attachment:scroll;"></div>
+    <div class="hero-overlay"></div>
+    <div class="wa-section-content fade-up">
+      <span class="label">Join the Conversation</span>
+      <h2>Join Our WhatsApp Community</h2>
+      <p>Connect with hundreds of members. Events, tips, and daily motivation.</p>
+      <a href="https://chat.whatsapp.com/GjJSL7JxPBIE38OpQnCXCo" target="_blank" rel="noopener" class="btn-wa">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Join the Community
+      </a>
+    </div>
+  </section>
+  </main>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/images/logo-dark.png" alt="The Project DXB" />
+          </div>
+          <p class="footer-about">Results-driven strength &amp; conditioning in Dubai. Training, Nutrition, Community.</p>
+          <p class="footer-phrase">What's your Project?</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="corporate.html">Corporate</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:jack@theprojectdxb.com">jack@theprojectdxb.com</a></li>
+            <li><a href="tel:+971504994680">+971 50 499 4680</a></li>
+            <li><a href="contact.html#location">15A St, Al Qouz Ind. First<br/>Al Quoz, Dubai</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://www.instagram.com/theprojectdxb" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/share/1aDbW2KLCJ/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://chat.whatsapp.com/GjJSL7JxPBIE38OpQnCXCo" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp Community">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 The Project DXB. All rights reserved.</span>
+        <span>15A St, Al Qouz — Al Quoz, Dubai, UAE</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ WHATSAPP FLOAT ════════════════════════════════════ -->
+  <a href="https://wa.me/971504994680?text=Hi%20Coach%2C%20I%20would%20like%20to%20claim%20the%202%20free%20trial%20class%20offer%20please%3A%20Full%20Name%20/%20Email" target="_blank" rel="noopener" class="wa-float" aria-label="Experience The Project">
+    <span class="wa-tooltip">Experience The Project</span>
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ══ COOKIE BANNER ═════════════════════════════════════ -->
+  <div class="cookie-banner hidden">
+    <p class="cookie-text">We use cookies to improve your experience on our site. By continuing, you agree to our use of cookies. <a href="#">Learn more</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-primary cookie-accept">Accept</button>
+      <button class="btn btn-outline cookie-decline">Decline</button>
+    </div>
+  </div>
+
+  <!-- ══ HERO PILLARS — hover image swap ══════════════════ -->
+  <script>
+  (function () {
+    const pillars = document.querySelectorAll('.hp-pillar');
+    const bgs     = document.querySelectorAll('.hp-bg');
+    if (!pillars.length || !bgs.length) return;
+
+    function activate(idx) {
+      pillars.forEach((p, i) => p.classList.toggle('active', i === idx));
+      bgs.forEach((b, i)     => b.classList.toggle('active', i === idx));
+    }
+
+    pillars.forEach((pillar, idx) => {
+      pillar.addEventListener('mouseenter', () => activate(idx));
+    });
+  })();
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
