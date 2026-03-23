@@ -177,6 +177,43 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdown.addEventListener('mouseleave', close);
   });
 
+  // ── TESTIMONIAL SLIDER ─────────────────────────────────
+  const track    = document.getElementById('reviewTrack');
+  const prevBtn  = document.querySelector('.slider-prev');
+  const nextBtn  = document.querySelector('.slider-next');
+
+  if (track && prevBtn && nextBtn) {
+    let current = 0;
+
+    function getVisible() {
+      return window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
+    }
+
+    function totalCards() {
+      return track.querySelectorAll('.testimonial-card').length;
+    }
+
+    function goTo(index) {
+      const visible = getVisible();
+      const max = totalCards() - visible;
+      current = Math.max(0, Math.min(index, max));
+      const cardW = track.querySelector('.testimonial-card').offsetWidth;
+      track.style.transform = `translateX(-${current * cardW}px)`;
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+    window.addEventListener('resize', () => goTo(current));
+
+    // Touch swipe support
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  }
+
   // ── SMOOTH SCROLL for anchor links ─────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
