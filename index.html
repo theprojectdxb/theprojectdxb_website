@@ -122,6 +122,27 @@
       margin-bottom: 1.25rem;
     }
 
+    /* Hero button group */
+    .hero-btn-group {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 480px) {
+      .hero-btn-group {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      .hero-btn-group .btn {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+      }
+    }
+
     /* Scroll indicator */
     .hp-scroll {
       position: absolute;
@@ -302,9 +323,8 @@
       <span class="label">Est. 2018 — Dubai</span>
       <h1>WHAT'S YOUR PROJECT?</h1>
       <p class="hero-sub">Strength. Conditioning. Community. Dubai's most serious training programme.</p>
-      <div>
+      <div class="hero-btn-group">
         <a href="https://wa.me/971504994680?text=Hi%20Coach%2C%20I%20would%20like%20to%20claim%20the%202%20free%20trial%20class%20offer%20please%3A%20Full%20Name%20/%20Email" target="_blank" rel="noopener" class="btn btn-primary">Experience The Project</a>
-        &nbsp;&nbsp;
         <a href="classes.html" class="btn btn-outline">See Classes</a>
       </div>
     </div>
